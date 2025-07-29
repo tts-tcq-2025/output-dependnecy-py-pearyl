@@ -16,15 +16,18 @@ def report(sensorReader):
     if (readings['temperatureInC'] > 25):
         if readings['precipitation'] >= 20 and readings['precipitation'] < 60:
             weather = "Partly Cloudy"
-        elif readings['windSpeedKMPH'] > 50:
-            weather = "Alert, Stormy with heavy rain"
+        else: 
+            if readings['windSpeedKMPH'] > 50:
+                weather = "Alert, Stormy with heavy rain"
+            else:
+                weather = "Rainy Day"
     return weather
 
 
 def testRainy():
     weather = report(sensorStub)
     print(weather)
-    assert("rain" in weather)
+    assert("rain" in weather.lower())
 
 
 def testHighPrecipitation():
@@ -35,7 +38,7 @@ def testHighPrecipitation():
 
     # strengthen the assert to expose the bug
     # (function returns Sunny day, it should predict rain)
-    assert(len(weather) > 0);
+    assert("rainy" in weather.lower()); # Will fail if bug exists
 
 
 if __name__ == '__main__':

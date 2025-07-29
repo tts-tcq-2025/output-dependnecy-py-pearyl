@@ -15,10 +15,11 @@ def get_color_map():
     return color_map
 
 def format_color_map_line(entry):
+    index, major, minor = entry
     return (f'{index} | {major} | {minor}')
 
-def print_on_console(line_content: str):
-    print(line_content, end='')
+def print_on_console(line):
+    print(line)
 
 def print_color_map(print_fn):
     color_map = generate_color_map()

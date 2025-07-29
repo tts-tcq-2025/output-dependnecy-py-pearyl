@@ -20,7 +20,7 @@ def format_color_map_line(entry):
 def print_on_console(line_content: str):
     print(line_content, end='')
 
-def print_color_map(print_fn: Callable[[str], None]) -> int:
+def print_color_map(print_fn):
     color_map = generate_color_map()
     for entry in color_map:
         line = format_color_map_line(entry)

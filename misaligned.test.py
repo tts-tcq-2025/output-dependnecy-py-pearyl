@@ -1,9 +1,6 @@
 import unittest
 from misaligned import get_color_map, print_color_map, format_color_map_line
 
-def fake_print(line):
-    captured_lines.append(line)
-
 class MisalignedTest(unittest.TestCase):
     captured_output = []
     
